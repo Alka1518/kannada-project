@@ -30,11 +30,14 @@ const Product = ({
     };
 
     try {
-      await fetch("http://localhost:5000/api/products/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      await fetch(
+        `${import.meta.env.VITE_API_URL}/api/products/submit`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        }
+      );
 
       setShowMsg(true);
       form.reset();
